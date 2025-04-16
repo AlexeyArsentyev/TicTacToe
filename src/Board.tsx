@@ -1,8 +1,16 @@
-import Square from './Square';
-import { calculateWinner } from './calculateWinner';
+import React from 'react';
+import Square from './Square.tsx';
+import { calculateWinner } from './calculateWinner.ts';
+import { SquaresArray } from './types';
 
-export default function Board({ xIsNext, squares, onPlay }) {
-  function handleClick(i) {
+interface BoardProps {
+  xIsNext: boolean;
+  squares: SquaresArray;
+  onPlay: (nextSquares: SquaresArray) => void;
+}
+
+export default function Board({ xIsNext, squares, onPlay }: BoardProps): React.ReactElement {
+  function handleClick(i: number): void {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
@@ -16,7 +24,7 @@ export default function Board({ xIsNext, squares, onPlay }) {
   }
 
   const winner = calculateWinner(squares);
-  let status;
+  let status: string;
   if (winner) {
     status = 'Winner: ' + winner;
   } else {
