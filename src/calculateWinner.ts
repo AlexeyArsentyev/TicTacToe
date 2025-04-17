@@ -1,6 +1,8 @@
 import { SquareValue, SquaresArray } from './types';
 
-export function calculateWinner(squares: SquaresArray): SquareValue {
+export type GameResult = SquareValue | 'Draw';
+
+export function calculateWinner(squares: SquaresArray): GameResult {
   const lines: number[][] = [
     [0, 1, 2],
     [3, 4, 5],
@@ -17,5 +19,11 @@ export function calculateWinner(squares: SquaresArray): SquareValue {
       return squares[a];
     }
   }
+
+  // Check if the board is full
+  if (squares.every((square) => square !== null)) {
+    return 'Draw';
+  }
+
   return null;
 }

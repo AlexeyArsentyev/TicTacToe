@@ -8,7 +8,7 @@ interface SquareProps {
 
 export default function Square({ value, onSquareClick }: SquareProps): React.ReactElement {
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className="square" onClick={onSquareClick} data-testid="square">
       {value}
     </button>
   );

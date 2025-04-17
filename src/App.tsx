@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import Board from './Board.tsx';
+import Board from './Board';
 import { SquaresArray } from './types';
-import restartIcon from './icons/restartIcon.svg';
-import PlayerForm from './PlayerForm.tsx';
+
+import PlayerForm from './PlayerForm';
+import RestartButton from './RestartButton';
+
 export default function App(): React.ReactElement {
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const [history, setHistory] = useState<SquaresArray[]>([Array(9).fill(null)]);
@@ -60,13 +62,15 @@ export default function App(): React.ReactElement {
   return (
     <div className="game">
       {!gameStared ? (
-        <PlayerForm
-          playerXName={playerXName}
-          playerOName={playerOName}
-          onNamesSet={handleNamesSet}
-        />
+        <div data-testid="player-form">
+          <PlayerForm
+            playerXName={playerXName}
+            playerOName={playerOName}
+            onNamesSet={handleNamesSet}
+          />
+        </div>
       ) : (
-        <>
+        <div className="game-container" data-testid="game-container">
           <div className="game-content">
             <div className="game-board">
               <Board
@@ -77,15 +81,13 @@ export default function App(): React.ReactElement {
                 playerOName={playerOName}
               />
             </div>
-            <button onClick={handleRestart} className="restart-button">
-              <img src={restartIcon} alt="restart-icon" />
-            </button>
+            <RestartButton onClick={handleRestart} />
           </div>
           <div className="game-info">
             <h3 className="game-info-header">Go to:</h3>
             <ol className="turn-list">{moves}</ol>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

@@ -1,6 +1,6 @@
 import React from 'react';
-import Square from './Square.tsx';
-import { calculateWinner } from './calculateWinner.ts';
+import Square from './Square';
+import { calculateWinner, GameResult } from './calculateWinner'; // Import GameResult
 import { SquaresArray } from './types';
 
 interface BoardProps {
@@ -31,19 +31,19 @@ export default function Board({
     onPlay(nextSquares);
   }
 
-  const winner =
-    calculateWinner(squares) === 'X'
-      ? playerXName
-      : calculateWinner(squares) === 'O'
-      ? playerOName
-      : null;
-  let status: string;
+  const gameResult: GameResult = calculateWinner(squares);
+  let displayedName: string;
   let statusHeader: string;
-  if (winner) {
-    status = winner;
+
+  if (gameResult === 'Draw') {
+    statusHeader = 'Game Over:';
+    displayedName = 'Draw';
+  } else if (gameResult) {
+    // 'X' or 'O'
+    displayedName = gameResult === 'X' ? playerXName : playerOName;
     statusHeader = 'Winner:';
   } else {
-    status = xIsNext ? playerXName : playerOName;
+    displayedName = xIsNext ? playerXName : playerOName;
     statusHeader = 'Next player:';
   }
 
@@ -51,7 +51,9 @@ export default function Board({
     <>
       <div className="status-container">
         <div className="status-header">{statusHeader} </div>
-        <div className="status">{status}</div>
+        <p className="displayed-name" data-testid="displayed-name">
+          {displayedName}
+        </p>
       </div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
