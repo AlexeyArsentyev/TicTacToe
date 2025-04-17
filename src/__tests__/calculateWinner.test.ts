@@ -1,5 +1,5 @@
-import { calculateWinner } from './calculateWinner';
-import { SquaresArray } from './types';
+import { calculateWinner } from '../calculateWinner';
+import { SquaresArray } from '../types';
 
 describe('calculateWinner', () => {
   it('should return null for an empty board', () => {

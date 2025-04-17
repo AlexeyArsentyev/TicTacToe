@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import App from '../App';
 
 test('renders player form initially and hides game container', () => {
   render(<App />);
