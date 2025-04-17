@@ -29,7 +29,7 @@ describe('calculateWinner', () => {
 
   it('should return null when there is a draw', () => {
     const squares: SquaresArray = ['X', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'X'];
-    expect(calculateWinner(squares)).toBeNull();
+    expect(calculateWinner(squares)).toBe('Draw');
   });
 
   it('should return null when the game is ongoing', () => {
