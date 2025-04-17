@@ -51,7 +51,9 @@ export default function Board({
     <>
       <div className="status-container">
         <div className="status-header">{statusHeader} </div>
-        <div className="displayed-name">{displayedName}</div>
+        <p className="displayed-name" data-testid="displayed-name">
+          {displayedName}
+        </p>
       </div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />

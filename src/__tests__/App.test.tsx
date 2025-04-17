@@ -29,3 +29,19 @@ test('renders game container after names are set and hides player form', () => {
   const gameContainer = screen.getByTestId('game-container');
   expect(gameContainer).toBeInTheDocument();
 });
+
+test('displays correct player name in initial status', () => {
+  render(<App />);
+
+  const inputX = screen.getByLabelText(/First player:/i);
+
+  const submitButton = screen.getByRole('button', { name: /Start!/i });
+
+  // Simulate typing names and submitting the form
+  fireEvent.change(inputX, { target: { value: 'Alice' } });
+
+  fireEvent.click(submitButton);
+
+  const name = screen.getByTestId('displayed-name');
+  expect(name.textContent).toBe('Alice');
+});
