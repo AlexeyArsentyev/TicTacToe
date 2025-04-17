@@ -44,9 +44,9 @@ export default function App(): React.ReactElement {
   const moves = history.map((squares, move) => {
     let description: string;
     if (move > 0) {
-      description = 'Go to move #' + move;
+      description = 'Move ' + move;
     } else {
-      description = 'Go to game start';
+      description = 'Game start';
     }
     return (
       <li key={move} className="turn-list-item">
@@ -82,6 +82,7 @@ export default function App(): React.ReactElement {
             </button>
           </div>
           <div className="game-info">
+            <h3 className="game-info-header">Go to:</h3>
             <ol className="turn-list">{moves}</ol>
           </div>
         </>
