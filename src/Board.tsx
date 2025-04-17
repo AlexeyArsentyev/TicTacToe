@@ -1,6 +1,6 @@
 import React from 'react';
 import Square from './Square';
-import { calculateWinner } from './calculateWinner';
+import { calculateWinner, GameResult } from './calculateWinner'; // Import GameResult
 import { SquaresArray } from './types';
 
 interface BoardProps {
@@ -31,16 +31,16 @@ export default function Board({
     onPlay(nextSquares);
   }
 
-  const winner =
-    calculateWinner(squares) === 'X'
-      ? playerXName
-      : calculateWinner(squares) === 'O'
-      ? playerOName
-      : null;
+  const gameResult: GameResult = calculateWinner(squares);
   let displayedName: string;
   let statusHeader: string;
-  if (winner) {
-    displayedName = winner;
+
+  if (gameResult === 'Draw') {
+    statusHeader = 'Game Over:';
+    displayedName = 'Draw';
+  } else if (gameResult) {
+    // 'X' or 'O'
+    displayedName = gameResult === 'X' ? playerXName : playerOName;
     statusHeader = 'Winner:';
   } else {
     displayedName = xIsNext ? playerXName : playerOName;
