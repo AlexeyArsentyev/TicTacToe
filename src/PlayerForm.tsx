@@ -21,10 +21,11 @@ export default function PlayerForm({
 
   return (
     <form onSubmit={handleSubmit} className="player-form">
-      <h2>Enter Player Names</h2>
-      <div>
+      <h2>Enter your names</h2>
+
+      <div className="input-container">
         <label htmlFor="playerX" className="input-label">
-          Player X:
+          First player:
         </label>
         <input
           type="text"
@@ -35,9 +36,9 @@ export default function PlayerForm({
           className="player-input"
         />
       </div>
-      <div>
+      <div className="input-container">
         <label htmlFor="playerO" className="input-label">
-          Player O:
+          Second player:
         </label>
         <input
           type="text"
@@ -48,6 +49,7 @@ export default function PlayerForm({
           className="player-input"
         />
       </div>
+
       <button type="submit" className="submit-button">
         Start!
       </button>
