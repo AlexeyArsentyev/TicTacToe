@@ -14,7 +14,7 @@ For testing I used Jest + React testing library. Pretty basic stack, its simple 
 
 In tests, I covered:
 
--Form rendering before the start of the game, the game itself after the form is submitted. It's pretty much necessary to check if the main layout is displayed properly.
+-Form rendering before the start of the game, the game itself after the form is submitted. It's just necessary to check if the main layout is displayed properly.
 
 -Squares and all interactions with them. When pressed, they should call the appropriate function and update. Its also important to check when they should not update, for example when the game is finished, another player cant make a move.
 
@@ -22,12 +22,12 @@ In tests, I covered:
 
 -Names being set and updated correctly, especially after a restart for example. If user doesnt enter the name, the default one is set. Names are kept between game with a possibility of change. This allows to just press Start to begin a new game and not interupt the flow.
 
--History features by simulating a small game. When user goes back and changes his turn, history and board should update correctly. There is still ptentially a room for error, more comprehensive test should be done in future, because this one includes only one scripted scenario.
+-History features by simulating a short game. When user goes back and changes his turn, history and board should update correctly. There is still ptentially a room for error, more comprehensive test should be done in future, because this one includes only one scripted scenario.
 
 What SHOULD be done later:
 
--More edge case tests, for example, if both players are winning at the same time, a Draw should be returned. (It could be possible if the game would be multiplayer and we will receive a syncing error for example)
+-More edge case tests. For example, if both players are winning at the same time, a Draw should be returned. (It could be possible if the game would be multiplayer and we will receive a syncing error for example)
 
 -If the project grows bigger, snapshot and end-to-end testing could be beneficial.
 
-Thank you for reading all of this :)
+Thank you for reading :)
