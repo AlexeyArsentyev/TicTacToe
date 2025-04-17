@@ -49,8 +49,10 @@ export default function App(): React.ReactElement {
       description = 'Go to game start';
     }
     return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{description}</button>
+      <li key={move} className="turn-list-item">
+        <button onClick={() => jumpTo(move)} className="turn-button">
+          {description}
+        </button>
       </li>
     );
   });
@@ -75,12 +77,12 @@ export default function App(): React.ReactElement {
                 playerOName={playerOName}
               />
             </div>
-            <button onClick={handleRestart}>
+            <button onClick={handleRestart} className="restart-button">
               <img src={restartIcon} alt="restart-icon" />
             </button>
           </div>
           <div className="game-info">
-            <ol>{moves}</ol>
+            <ol className="turn-list">{moves}</ol>
           </div>
         </>
       )}

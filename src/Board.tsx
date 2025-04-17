@@ -38,15 +38,21 @@ export default function Board({
       ? playerOName
       : null;
   let status: string;
+  let statusHeader: string;
   if (winner) {
-    status = 'Winner: ' + winner;
+    status = winner;
+    statusHeader = 'Winner:';
   } else {
-    status = 'Next player: ' + (xIsNext ? playerXName : playerOName);
+    status = xIsNext ? playerXName : playerOName;
+    statusHeader = 'Next player:';
   }
 
   return (
     <>
-      <div className="status">{status}</div>
+      <div className="status-container">
+        <div className="status-header">{statusHeader} </div>
+        <div className="status">{status}</div>
+      </div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
