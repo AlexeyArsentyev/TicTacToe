@@ -107,6 +107,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  min-width: 400px;
 }
 
 .game-content {
