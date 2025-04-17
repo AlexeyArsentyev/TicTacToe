@@ -62,7 +62,7 @@ h3 {
 .status-container {
   margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 7px;
   align-items: center;
 }
@@ -74,6 +74,7 @@ h3 {
 .displayed-name {
   font-size: 25px;
   font-weight: 600;
+  margin: 0;
 }
 .game {
   height: 90vh;
