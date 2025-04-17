@@ -7,9 +7,17 @@ interface BoardProps {
   xIsNext: boolean;
   squares: SquaresArray;
   onPlay: (nextSquares: SquaresArray) => void;
+  playerXName: string;
+  playerOName: string;
 }
 
-export default function Board({ xIsNext, squares, onPlay }: BoardProps): React.ReactElement {
+export default function Board({
+  xIsNext,
+  squares,
+  onPlay,
+  playerXName,
+  playerOName,
+}: BoardProps): React.ReactElement {
   function handleClick(i: number): void {
     if (calculateWinner(squares) || squares[i]) {
       return;
@@ -23,12 +31,17 @@ export default function Board({ xIsNext, squares, onPlay }: BoardProps): React.R
     onPlay(nextSquares);
   }
 
-  const winner = calculateWinner(squares);
+  const winner =
+    calculateWinner(squares) === 'X'
+      ? playerXName
+      : calculateWinner(squares) === 'O'
+      ? playerOName
+      : null;
   let status: string;
   if (winner) {
     status = 'Winner: ' + winner;
   } else {
-    status = 'Next player: ' + (xIsNext ? 'X' : 'O');
+    status = 'Next player: ' + (xIsNext ? playerXName : playerOName);
   }
 
   return (
