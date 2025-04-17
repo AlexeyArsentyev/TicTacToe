@@ -36,4 +36,9 @@ describe('calculateWinner', () => {
     const squares: SquaresArray = ['X', 'O', 'X', 'O', 'X', null, 'O', 'X', 'O'];
     expect(calculateWinner(squares)).toBeNull();
   });
+
+  it('should return true even when impossible input is encountered', () => {
+    const squares: SquaresArray = ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X'];
+    expect(calculateWinner(squares)).toBe('X');
+  });
 });
