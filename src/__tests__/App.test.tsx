@@ -102,3 +102,19 @@ test('allows time travel to previous moves and updates history correctly', () =>
   expect(historyButtons).toHaveLength(3); // Game start, Move 1, Move 2 (new)
   expect(screen.queryByRole('button', { name: /Move 3/i })).not.toBeInTheDocument();
 });
+
+test('switches turns correctly between players', () => {
+  const { playerXName, playerOName } = setupGame();
+
+  let statusName = screen.getByTestId('displayed-name');
+  expect(statusName.textContent).toBe(playerXName);
+  const squares = screen.getAllByTestId('square');
+  fireEvent.click(squares[0]);
+  statusName = screen.getByTestId('displayed-name');
+  expect(statusName.textContent).toBe(playerOName);
+
+  fireEvent.click(squares[1]);
+
+  statusName = screen.getByTestId('displayed-name');
+  expect(statusName.textContent).toBe(playerXName);
+});
