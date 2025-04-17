@@ -34,6 +34,7 @@ export default function PlayerForm({
           onChange={(e) => setNameX(e.target.value)}
           placeholder="Player X"
           className="player-input"
+          maxLength={20}
         />
       </div>
       <div className="input-container">
@@ -47,6 +48,7 @@ export default function PlayerForm({
           onChange={(e) => setNameO(e.target.value)}
           placeholder="Player O"
           className="player-input"
+          maxLength={20}
         />
       </div>
 
