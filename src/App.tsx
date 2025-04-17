@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Board from './Board.tsx';
+import Board from './Board';
 import { SquaresArray } from './types';
-import restartIcon from './icons/restartIcon.svg';
-import PlayerForm from './PlayerForm.tsx';
+
+import PlayerForm from './PlayerForm';
 export default function App(): React.ReactElement {
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const [history, setHistory] = useState<SquaresArray[]>([Array(9).fill(null)]);
@@ -60,12 +60,13 @@ export default function App(): React.ReactElement {
   return (
     <div className="game">
       {!gameStared ? (
-        <PlayerForm
-          playerXName={playerXName}
-          playerOName={playerOName}
-          onNamesSet={handleNamesSet}
-          data-testid="player-form"
-        />
+        <div data-testid="player-form">
+          <PlayerForm
+            playerXName={playerXName}
+            playerOName={playerOName}
+            onNamesSet={handleNamesSet}
+          />
+        </div>
       ) : (
         <div className="game-container" data-testid="game-container">
           <div className="game-content">
@@ -79,7 +80,7 @@ export default function App(): React.ReactElement {
               />
             </div>
             <button onClick={handleRestart} className="restart-button">
-              <img src={restartIcon} alt="restart-icon" />
+              Restart
             </button>
           </div>
           <div className="game-info">
