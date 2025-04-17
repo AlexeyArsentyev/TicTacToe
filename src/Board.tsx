@@ -1,6 +1,6 @@
 import React from 'react';
-import Square from './Square.tsx';
-import { calculateWinner } from './calculateWinner.ts';
+import Square from './Square';
+import { calculateWinner } from './calculateWinner';
 import { SquaresArray } from './types';
 
 interface BoardProps {
