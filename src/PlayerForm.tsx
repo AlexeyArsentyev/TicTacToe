@@ -49,7 +49,7 @@ export default function PlayerForm({
         />
       </div>
       <button type="submit" className="submit-button">
-        Start Game
+        Start!
       </button>
     </form>
   );

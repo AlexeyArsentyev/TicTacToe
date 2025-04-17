@@ -123,6 +123,21 @@ ul {
   border: none;
   border-radius: 50px;
   color: #ffe1cb;
+
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.restart-button:hover,
+.turn-button:hover,
+.submit-button:hover {
+  background-color: #6f4a4a;
+}
+
+.restart-button:active,
+.turn-button:active,
+.submit-button:active {
+  background-color: #3a2626;
+  transform: scale(0.95);
 }
 
 .restart-button {
@@ -150,11 +165,11 @@ ul {
 }
 
 .submit-button {
-  padding: 13px 40px;
-  font-weight: 500;
+  padding: 13px 30px;
+  font-weight: 400;
 
   margin-top: 5px;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .player-form {
