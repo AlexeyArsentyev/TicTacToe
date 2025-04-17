@@ -59,6 +59,8 @@ test('resets the game and shows player form when restart button is clicked', () 
 });
 
 test('allows time travel to previous moves and updates history correctly', () => {
+  setupGame();
+
   const squares = screen.getAllByTestId('square');
 
   // move 1: playerX clicks square 0
