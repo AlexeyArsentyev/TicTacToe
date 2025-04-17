@@ -23,26 +23,34 @@ export default function PlayerForm({
     <form onSubmit={handleSubmit} className="player-form">
       <h2>Enter Player Names</h2>
       <div>
-        <label htmlFor="playerX">Player X:</label>
+        <label htmlFor="playerX" className="input-label">
+          Player X:
+        </label>
         <input
           type="text"
           id="playerX"
           value={nameX}
           onChange={(e) => setNameX(e.target.value)}
           placeholder="Player X"
+          className="player-input"
         />
       </div>
       <div>
-        <label htmlFor="playerO">Player O:</label>
+        <label htmlFor="playerO" className="input-label">
+          Player O:
+        </label>
         <input
           type="text"
           id="playerO"
           value={nameO}
           onChange={(e) => setNameO(e.target.value)}
           placeholder="Player O"
+          className="player-input"
         />
       </div>
-      <button type="submit">Start Game</button>
+      <button type="submit" className="submit-button">
+        Start Game
+      </button>
     </form>
   );
 }

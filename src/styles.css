@@ -117,10 +117,12 @@ ul {
 }
 
 .restart-button,
-.turn-button {
+.turn-button,
+.submit-button {
   background-color: var(--dark);
   border: none;
   border-radius: 50px;
+  color: #ffe1cb;
 }
 
 .restart-button {
@@ -143,7 +145,39 @@ ul {
 }
 
 .turn-button {
-  color: #ffe1cb;
   padding: 10px 20px;
   font-weight: 500;
+}
+
+.submit-button {
+  padding: 13px 40px;
+  font-weight: 500;
+
+  margin-top: 5px;
+  font-size: 15px;
+}
+
+.player-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-input {
+  margin: 0 0 15px 5px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #3a2626;
+  font-size: 20px;
+}
+
+.input-label {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+::placeholder {
+  color: #615050;
+  opacity: 1; /* Firefox */
 }
