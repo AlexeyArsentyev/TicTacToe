@@ -37,13 +37,13 @@ export default function Board({
       : calculateWinner(squares) === 'O'
       ? playerOName
       : null;
-  let status: string;
+  let displayedName: string;
   let statusHeader: string;
   if (winner) {
-    status = winner;
+    displayedName = winner;
     statusHeader = 'Winner:';
   } else {
-    status = xIsNext ? playerXName : playerOName;
+    displayedName = xIsNext ? playerXName : playerOName;
     statusHeader = 'Next player:';
   }
 
@@ -51,7 +51,7 @@ export default function Board({
     <>
       <div className="status-container">
         <div className="status-header">{statusHeader} </div>
-        <div className="status">{status}</div>
+        <div className="displayed-name">{displayedName}</div>
       </div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
