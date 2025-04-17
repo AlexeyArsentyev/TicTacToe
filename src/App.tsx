@@ -64,9 +64,10 @@ export default function App(): React.ReactElement {
           playerXName={playerXName}
           playerOName={playerOName}
           onNamesSet={handleNamesSet}
+          data-testid="player-form"
         />
       ) : (
-        <>
+        <div className="game-container" data-testid="game-container">
           <div className="game-content">
             <div className="game-board">
               <Board
@@ -85,7 +86,7 @@ export default function App(): React.ReactElement {
             <h3 className="game-info-header">Go to:</h3>
             <ol className="turn-list">{moves}</ol>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
