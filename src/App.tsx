@@ -3,6 +3,8 @@ import Board from './Board';
 import { SquaresArray } from './types';
 
 import PlayerForm from './PlayerForm';
+import RestartButton from './RestartButton';
+
 export default function App(): React.ReactElement {
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const [history, setHistory] = useState<SquaresArray[]>([Array(9).fill(null)]);
@@ -79,9 +81,7 @@ export default function App(): React.ReactElement {
                 playerOName={playerOName}
               />
             </div>
-            <button onClick={handleRestart} className="restart-button">
-              Restart
-            </button>
+            <RestartButton onClick={handleRestart} />
           </div>
           <div className="game-info">
             <h3 className="game-info-header">Go to:</h3>
