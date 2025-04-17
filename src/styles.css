@@ -102,6 +102,13 @@ h3 {
   align-items: center;
 }
 
+.game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .game-content {
   display: flex;
   flex-direction: column;
