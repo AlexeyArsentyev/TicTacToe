@@ -146,6 +146,10 @@ h2 {
   font-size: 20px;
 }
 
+.player-form {
+  margin-right: 100px;
+}
+
 .player-input {
   background-color: transparent;
   border: none;
